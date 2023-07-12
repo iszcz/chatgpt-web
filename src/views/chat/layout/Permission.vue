@@ -22,11 +22,18 @@ interface Emit {
   (e: 'update:visible', visible: boolean): void
 }
 
-
-const isModalOpen = false
-function toggleModal() {
-  this.isModalOpen = !this.isModalOpen;
-}
+export default {
+  data() {
+    return {
+      isModalOpen: false
+    };
+  },
+  methods: {
+    toggleModal() {
+      this.isModalOpen = !this.isModalOpen;
+    }
+  }
+};
 
 const show = computed({
   get() {
