@@ -214,11 +214,6 @@ function handleImportButtonClick(): void {
         </NButton>
       </div>
       <div class="flex items-center space-x-4">
-        <NButton type="tertiary" @click="window.open(/src/assets/reward.jpeg)">
-          {{ $t('setting.reward') }}
-        </NButton>
-      </div>
-      <div class="flex items-center space-x-4">
         <NButton type="error" @click="handleLogout">
           {{ $t('common.logOut') }}
         </NButton>
