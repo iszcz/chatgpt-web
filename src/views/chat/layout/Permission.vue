@@ -208,7 +208,7 @@ async function handleResetPassword() {
 </script>
 
 <template>
-  <NModal v-show="show" style="width: 90%; max-width: 440px">
+  <NModal v-show="show" preset="card" style="width: 90%; max-width: 440px">
     <div class="p-10 bg-white rounded dark:bg-slate-800">
       <div class="space-y-4">
         <header class="space-y-2">
