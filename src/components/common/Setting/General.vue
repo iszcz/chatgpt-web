@@ -217,7 +217,7 @@ function handleImportButtonClick(): void {
         <span class="flex-shrink-0 w-[100px]">{{ $t('setting.reward') }}</span>
         <HoverButton :tooltip="$t('setting.reward')">
           <a href="/src/assets/reward.jpeg" target="_blank">
-            <SvgIcon icon="solar:dollar-linear" />
+            <SvgIcon icon="clarity:dollar-solid" />
           </a>
         </HoverButton>
       </div>
