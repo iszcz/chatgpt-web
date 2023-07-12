@@ -14,6 +14,7 @@ const authStore = useAuthStore()
 
 async function handleLogout() {
   await authStore.removeToken()
+  reload();
 }
 
 const appStore = useAppStore()
@@ -213,12 +214,14 @@ function handleImportButtonClick(): void {
         </NButton>
       </div>
       <div class="flex items-center space-x-4">
-        <span class="flex-shrink-0 w-[100px]">{{ $t('common.reward') }}</span>
-        <HoverButton :tooltip="$t('common.reward')">
-          <span class="text-xl text-[#4f555e] dark:text-white" href="/src/assets/reward.jpeg" target="_blank">
+        <span class="flex-shrink-0 w-[100px]">{{ $t('setting.reward') }}</span>
+        <HoverButton :tooltip="$t('setting.reward')">
+          <a href="/src/assets/reward.jpeg" target="_blank">
             <SvgIcon icon="solar:dollar-linear" />
-          </span>
+          </a>
         </HoverButton>
+      </div>
+      <div class="flex items-center space-x-4">
         <NButton type="error" @click="handleLogout">
           {{ $t('common.logOut') }}
         </NButton>

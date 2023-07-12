@@ -11,6 +11,11 @@ interface Props {
 
 const props = defineProps<Props>()
 
+
+interface Props {
+  visible: boolean
+}
+
 const emit = defineEmits<Emit>()
 
 interface Emit {
@@ -20,6 +25,15 @@ interface Emit {
 const show = computed({
   get: () => props.visible,
   set: (visible: boolean) => emit('update:visible', visible),
+})
+
+const showt = computed({
+  get() {
+    return props.visible
+  },
+  set(visible: boolean) {
+    emit('update:visible', visible)
+  },
 })
 
 const route = useRoute()
@@ -199,7 +213,7 @@ async function handleResetPassword() {
 </script>
 
 <template>
-  <NModal v-model:show="show" :auto-focus="false" preset="card" style="width: 90%; max-width: 440px">
+  <NModal v-model:show="showt" :auto-focus="false" preset="card" style="width: 90%; max-width: 440px">
     <div class="p-10 bg-white rounded dark:bg-slate-800">
       <div class="space-y-4">
         <header class="space-y-2">
