@@ -2,13 +2,19 @@
 import { computed, ref } from 'vue'
 import { NButton, NInput, NPopconfirm, NSelect, useMessage } from 'naive-ui'
 import type { Language, Theme } from '@/store/modules/app/helper'
-import { SvgIcon } from '@/components/common'
+import { HoverButton, SvgIcon, UserAvatar } from '@/components/common'
 import { useAppStore, useUserStore } from '@/store'
 import type { UserInfo } from '@/store/modules/user/helper'
 import { getCurrentDate } from '@/utils/functions'
 import { useBasicLayout } from '@/hooks/useBasicLayout'
 import { t } from '@/locales'
 import { fetchClearAllChat } from '@/api'
+
+const authStore = useAuthStore()
+
+async function handleLogout() {
+  await authStore.removeToken()
+}
 
 const appStore = useAppStore()
 const userStore = useUserStore()
@@ -205,6 +211,11 @@ function handleImportButtonClick(): void {
         <NButton type="primary" @click="updateUserInfo({ avatar, name, description })">
           {{ $t('common.save') }}
         </NButton>
+        <HoverButton v-if="!!authStore.token" :tooltip="$t('common.logOut')" @click="handleLogout">
+          <span class="text-xl text-[#4f555e] dark:text-white">
+            <SvgIcon icon="uil:exit" />
+          </span>
+        </HoverButton>
       </div>
     </div>
   </div>
