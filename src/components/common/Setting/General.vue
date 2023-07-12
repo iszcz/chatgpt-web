@@ -219,7 +219,7 @@ function handleImportButtonClick(): void {
             <SvgIcon icon="solar:dollar-linear" />
           </span>
         </HoverButton>
-        <NButton type="danger" @click="handleLogout">
+        <NButton type="error" @click="handleLogout">
           {{ $t('common.logOut') }}
         </NButton>
       </div>
