@@ -22,6 +22,20 @@ interface Emit {
   (e: 'update:visible', visible: boolean): void
 }
 
+
+export default {
+  data() {
+    return {
+      isModalOpen: false
+    };
+  },
+  methods: {
+    toggleModal() {
+      this.isModalOpen = !this.isModalOpen;
+    }
+  }
+};
+
 const show = computed({
   get() {
     return props.visible
@@ -208,7 +222,20 @@ async function handleResetPassword() {
 </script>
 
 <template>
-  <NModal v-model:show="show" preset="card" style="width: 90%; max-width: 440px">
+  <NModal style="width: 90%; max-width: 440px" class="modal">
+    <div class="n-card-header">
+        <div class="n-card-header__main" role="heading"></div><!---->
+        <button type="button" @click="toggleModal" tabindex="0" aria-label="close" class="n-base-close n-base-close--absolute n-card-header__close">
+            <i class="n-base-icon">
+                <svg viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g fill="currentColor" fill-rule="nonzero">
+                        </g>
+                    </g>
+                </svg>
+            </i>
+        </button>
+    </div>
     <div class="p-10 bg-white rounded dark:bg-slate-800">
       <div class="space-y-4">
         <header class="space-y-2">
