@@ -23,9 +23,9 @@ interface Emit {
 }
 
 
+const isModalOpen = false
 function toggleModal() {
-    const isModalOpen = false
-    this.isModalOpen = !this.isModalOpen;
+  this.isModalOpen = !this.isModalOpen;
 }
 
 const show = computed({
@@ -214,7 +214,7 @@ async function handleResetPassword() {
 </script>
 
 <template>
-  <NModal style="width: 90%; max-width: 440px" class="modal">
+  <NModal v-show="isModalOpen" style="width: 90%; max-width: 440px" class="modal">
     <div class="n-card-header">
         <div class="n-card-header__main" role="heading"></div><!---->
         <button type="button" @click="toggleModal" tabindex="0" aria-label="close" class="n-base-close n-base-close--absolute n-card-header__close">
