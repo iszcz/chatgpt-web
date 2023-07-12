@@ -1,18 +1,3 @@
-<script>
-    
-export default {
-  data() {
-    return {
-      isModalOpen: false
-    };
-  },
-  methods: {
-    toggleModal() {
-      this.isModalOpen = !this.isModalOpen;
-    }
-  }
-};
-</script>
 <script setup lang='ts'>
 import { computed, onMounted, ref } from 'vue'
 import { NButton, NInput, NModal, NTabPane, NTabs, useMessage } from 'naive-ui'
@@ -38,6 +23,10 @@ interface Emit {
 }
 
 
+const isModalOpen = false
+toggleModal() {
+  this.isModalOpen = !this.isModalOpen;
+}
 
 const show = computed({
   get() {
