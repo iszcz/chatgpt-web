@@ -223,7 +223,7 @@ function handleImportButtonClick(): void {
       <div class="flex items-center space-x-4">
         <a href="/src/assets/reward.jpeg" target="_blank">
           {{ $t('setting.reward') }}
-        </NButton>
+        </a>
       </div>
     </div>
   </div>
