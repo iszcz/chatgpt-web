@@ -214,7 +214,7 @@ function handleImportButtonClick(): void {
         </NButton>
       </div>
       <div class="flex items-center space-x-4">
-        <NButton type="tertiary" onclick="window.open(/src/assets/reward.jpeg)">
+        <NButton type="tertiary" onclick="window.open('/src/assets/reward.jpeg')">
           {{ $t('setting.reward') }}
         </NButton>
       </div>
