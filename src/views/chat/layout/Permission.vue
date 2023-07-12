@@ -23,11 +23,6 @@ interface Emit {
 }
 
 const show = computed({
-  get: () => props.visible,
-  set: (visible: boolean) => emit('update:visible', visible),
-})
-
-const showt = computed({
   get() {
     return props.visible
   },
@@ -213,7 +208,7 @@ async function handleResetPassword() {
 </script>
 
 <template>
-  <NModal v-model:show="showt" preset="card" style="width: 90%; max-width: 440px">
+  <NModal v-model:show="show" preset="card" style="width: 90%; max-width: 440px">
     <div class="p-10 bg-white rounded dark:bg-slate-800">
       <div class="space-y-4">
         <header class="space-y-2">
