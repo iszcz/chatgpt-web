@@ -211,11 +211,19 @@ function handleImportButtonClick(): void {
         <NButton type="primary" @click="updateUserInfo({ avatar, name, description })">
           {{ $t('common.save') }}
         </NButton>
+      </div>
+      <div class="flex items-center space-x-4">
+        <span class="flex-shrink-0 w-[100px]">{{ $t('common.logOut') }}</span>
         <HoverButton v-if="!!authStore.token" :tooltip="$t('common.logOut')" @click="handleLogout">
           <span class="text-xl text-[#4f555e] dark:text-white">
             <SvgIcon icon="uil:exit" />
           </span>
         </HoverButton>
+      </div>
+      <div class="flex items-center space-x-4">
+        <a href="/src/assets/reward.jpeg" target="_blank">
+          {{ $t('setting.reward') }}
+        </NButton>
       </div>
     </div>
   </div>

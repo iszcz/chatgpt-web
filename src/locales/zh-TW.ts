@@ -141,6 +141,7 @@ export default {
     remark: '備註',
     email: '電子郵箱',
     password: '密碼',
+    reward: '打賞作者',
   },
   store: {
     siderButton: '提示詞商店',

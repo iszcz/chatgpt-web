@@ -141,6 +141,7 @@ export default {
     remark: 'Remark',
     email: 'Email',
     password: 'Password',
+    reward: 'Reward the author',
   },
   store: {
     siderButton: 'Prompt Store',

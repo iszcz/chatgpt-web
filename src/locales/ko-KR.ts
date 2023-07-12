@@ -139,6 +139,7 @@ export default {
     remark: 'Remark',
     email: 'Email',
     password: 'Password',
+    reward: 'Reward the author',
   },
   store: {
     siderButton: '프롬프트 스토어',

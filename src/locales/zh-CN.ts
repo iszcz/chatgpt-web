@@ -141,6 +141,7 @@ export default {
     remark: '备注',
     email: '电子邮箱',
     password: '密码',
+    reward: '打赏作者',
   },
   store: {
     siderButton: '提示词商店',
