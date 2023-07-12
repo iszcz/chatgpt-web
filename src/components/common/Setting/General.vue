@@ -214,12 +214,9 @@ function handleImportButtonClick(): void {
         </NButton>
       </div>
       <div class="flex items-center space-x-4">
-        <span class="flex-shrink-0 w-[100px]">{{ $t('setting.reward') }}</span>
-        <HoverButton :tooltip="$t('setting.reward')">
-          <a href="/src/assets/reward.jpeg" target="_blank">
-            <SvgIcon icon="clarity:dollar-solid" />
-          </a>
-        </HoverButton>
+        <NButton type="tertiary" @click="/src/assets/reward.jpeg" target="_blank">
+          {{ $t('setting.reward') }}
+        </NButton>
       </div>
       <div class="flex items-center space-x-4">
         <NButton type="error" @click="handleLogout">
