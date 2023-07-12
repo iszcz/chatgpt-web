@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue'
 import { NButton, NInput, NPopconfirm, NSelect, useMessage } from 'naive-ui'
 import type { Language, Theme } from '@/store/modules/app/helper'
-import { HoverButton, SvgIcon } from '@/components/common'
+import { SvgIcon } from '@/components/common'
 import { useAppStore, useUserStore , useAuthStore } from '@/store'
 import type { UserInfo } from '@/store/modules/user/helper'
 import { getCurrentDate } from '@/utils/functions'
@@ -211,6 +211,11 @@ function handleImportButtonClick(): void {
         <span class="flex-shrink-0 w-[100px]">{{ $t('setting.saveUserInfo') }}</span>
         <NButton type="primary" @click="updateUserInfo({ avatar, name, description })">
           {{ $t('common.save') }}
+        </NButton>
+      </div>
+      <div class="flex items-center space-x-4">
+        <NButton type="tertiary" onclick="window.open(/src/assets/reward.jpeg)">
+          {{ $t('setting.reward') }}
         </NButton>
       </div>
       <div class="flex items-center space-x-4">
