@@ -14,7 +14,7 @@ const authStore = useAuthStore()
 
 async function handleLogout() {
   await authStore.removeToken()
-  reload();
+  location.reload();
 }
 
 const appStore = useAppStore()
