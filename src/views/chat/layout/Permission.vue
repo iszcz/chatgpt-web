@@ -23,9 +23,9 @@ interface Emit {
 }
 
 
-const isModalOpen = false
 function toggleModal() {
-  this.isModalOpen = !this.isModalOpen;
+    const isModalOpen = false
+    this.isModalOpen = !this.isModalOpen;
 }
 
 const show = computed({
