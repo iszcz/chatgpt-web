@@ -144,7 +144,7 @@ export default {
     reward: '打赏作者',
   },
   store: {
-    siderButton: '提示词商店',
+    siderButton: '提示词',
     local: '本地',
     online: '在线',
     title: '标题',

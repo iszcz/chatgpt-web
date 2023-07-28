@@ -144,7 +144,7 @@ export default {
     reward: '打賞作者',
   },
   store: {
-    siderButton: '提示詞商店',
+    siderButton: '提示詞',
     local: '本機',
     online: '線上',
     title: '標題',

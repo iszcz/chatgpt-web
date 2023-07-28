@@ -541,6 +541,46 @@ async function handleToggleUsingContext() {
 // 可优化部分
 // 搜索选项计算，这里使用value作为索引项，所以当出现重复value时渲染异常(多项同时出现选中效果)
 // 理想状态下其实应该是key作为索引项,但官方的renderOption会出现问题，所以就需要value反renderLabel实现
+const ssearchOptions = computed(() => {
+  const filteredOptions = promptTemplate.value.filter((item: { key: string }) =>
+    item.key.toLowerCase().includes(prompt.value.substring(0).toLowerCase())
+  );
+
+  const randomizedOptions = shuffleArray(filteredOptions).slice(0, 9);
+
+  return randomizedOptions.map((obj: { value: any }) => ({
+    label: obj.value,
+    value: obj.value,
+  }));
+});
+
+function shuffleArray(array: any[]) {
+  let currentIndex = array.length;
+  let temporaryValue, randomIndex;
+
+  while (currentIndex !== 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+function handleButtonClick(tq: string) {
+  this.prompt = tq;
+}
+
+const rrenderOption = (option: { label: string }) => {
+  for (const i of promptTemplate.value) {
+    if (i.value === option.label)
+      return i.key;
+  }
+  return []
+}
+
 const searchOptions = computed(() => {
   if (prompt.value.startsWith('/')) {
     return promptTemplate.value.filter((item: { key: string }) => item.key.toLowerCase().includes(prompt.value.substring(1).toLowerCase())).map((obj: { value: any }) => {
@@ -609,6 +649,7 @@ onUnmounted(() => {
   if (loading.value)
     controller.abort()
 })
+
 </script>
 
 <template>
@@ -629,9 +670,28 @@ onUnmounted(() => {
         >
           <NSpin :show="firstLoading">
             <template v-if="!dataSources.length">
-              <div class="flex items-center justify-center mt-4 text-center text-neutral-300">
+              <div id="aha" class="flex items-center justify-center mt-4 text-center text-neutral-300">
                 <SvgIcon icon="ri:bubble-chart-fill" class="mr-2 text-3xl" />
                 <span>Aha~</span>
+              </div>
+              <div style="text-align:center;padding:25px 5%;">
+                  <template v-if="!isMobile"> 
+                    <button v-for="(label) of ssearchOptions" @click="handleButtonClick(label.value)" class="p-4 border rounded-md cursor-pointer hover:bg-neutral-100 group dark:border-neutral-800 dark:hover:bg-[#24272e]" style="width:30%;float:left;margin:10px;">
+                      <div>
+                        <span>
+                          <SvgIcon icon="ri:message-3-line" style="width:100%"/>
+                        </span>
+                        <span>
+                          {{ rrenderOption(label) }}
+                        </span>
+                      </div>
+                    </button>
+                  </template>
+                  <template v-else>
+                        <span>
+                          ✏ ...<br>{{ $t('chat.placeholder') }}
+                        </span>
+                  </template>
               </div>
             </template>
             <template v-else>
