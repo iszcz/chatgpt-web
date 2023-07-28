@@ -3,7 +3,7 @@ import { computed, ref } from 'vue'
 import { NButton, NInput, NPopconfirm, NSelect, useMessage } from 'naive-ui'
 import type { Language, Theme } from '@/store/modules/app/helper'
 import { SvgIcon } from '@/components/common'
-import { useAppStore, useUserStore , useAuthStore } from '@/store'
+import { useAppStore, useAuthStore, useUserStore } from '@/store'
 import type { UserInfo } from '@/store/modules/user/helper'
 import { getCurrentDate } from '@/utils/functions'
 import { useBasicLayout } from '@/hooks/useBasicLayout'
@@ -14,7 +14,7 @@ const authStore = useAuthStore()
 
 async function handleLogout() {
   await authStore.removeToken()
-  location.reload();
+  location.reload()
 }
 
 const appStore = useAppStore()

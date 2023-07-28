@@ -7,7 +7,6 @@ const Setting = defineAsyncComponent(() => import('@/components/common/Setting/i
 const authStore = useAuthStore()
 
 const show = ref(false)
-
 </script>
 
 <template>
